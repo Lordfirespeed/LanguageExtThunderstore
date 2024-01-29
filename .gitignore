@@ -1,0 +1,47 @@
+# Exclude everything
+/*
+
+# Specific includes
+
+## Submodules 
+!submodules/
+
+## Build System/Scripts
+!/.config/
+!/.run
+!NuGet.Config
+!Directory.Build.props
+!build.sh
+!build.ps1
+!build.cmd
+
+## Markdowns
+!*.md
+!LICENSE
+
+## important Git files
+!.gitmodules
+!.gitignore
+!.gitattributes
+!.git-blame-ignore-revs
+
+## GitHub specific
+!.github/
+
+## Solution
+!LanguageExtThunderstore.sln
+
+### BuildThunderstore Project
+!/BuildThunderstore
+/BuildThunderstore/[Bb]in
+/BuildThunderstore/[Oo]bj
+/BuildThunderstore/[Dd]ist
+
+### LanguageExt projects
+!/LanguageExt*
+/LanguageExt*/[Bb]in
+/LanguageExt*/[Oo]bj
+
+# Explicit exceptions/ignores
+**.user
+!**.template.*user

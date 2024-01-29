@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="$(ProjectDir)../LanguageExt*/LanguageExt*.csproj"/>
+    </ItemGroup>
+
+    <Target Name="PackThunderstore" AfterTargets="PostBuildEvent" Condition="$(Configuration) == 'Release'">
+        <Message Importance="high" Text="MinVer version is $(MinVerVersion)" />
+        <PropertyGroup>
+            <PlainVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)</PlainVersion>
+        </PropertyGroup>
+        <Exec Command="dotnet tcli build --config-path $(ProjectDir)assets/thunderstore.toml --package-version $(PlainVersion)" />
+        <ItemGroup>
+            <FilesToRename Include="$(ProjectDir)dist/*-$(PlainVersion).zip" />
+        </ItemGroup>
+        <Move SourceFiles="@(FilesToRename)" DestinationFiles="@(FilesToRename -&gt; Replace($(PlainVersion), $(MinVerVersion)))" />
+    </Target>
+</Project>

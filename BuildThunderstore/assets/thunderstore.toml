@@ -1,0 +1,50 @@
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "Lordfirespeed"
+name = "LanguageExt"
+description = "C# Functional Programming Language Extensions"
+websiteUrl = "https://github.com/lordfirespeed/languageextthunderstore"
+containsNsfwContent = false
+[package.dependencies]
+
+[build]
+icon = "icons/lang-ext.png"
+readme = "../../submodules/language-ext/README.md"
+outdir = "../dist"
+
+[[build.copy]]
+source = "../../submodules/language-ext/LICENSE.md"
+target = "/"
+
+[[build.copy]]
+source = "../bin/Release/LanguageExt.Core.dll"
+target = "BepInEx/plugins/LanguageExt/"
+
+[[build.copy]]
+source = "../bin/Release/LanguageExt.Core.pdb"
+target = "BepInEx/plugins/LanguageExt/"
+
+[[build.copy]]
+source = "../bin/Release/LanguageExt.Transformers.dll"
+target = "BepInEx/plugins/LanguageExt/"
+
+[[build.copy]]
+source = "../bin/Release/LanguageExt.Transformers.pdb"
+target = "BepInEx/plugins/LanguageExt/"
+
+[[build.copy]]
+source = "../bin/Release/LanguageExt.Rx.dll"
+target = "BepInEx/plugins/LanguageExt/"
+
+[[build.copy]]
+source = "../bin/Release/LanguageExt.Rx.pdb"
+target = "BepInEx/plugins/LanguageExt/"
+
+
+[publish]
+repository = "https://thunderstore.io"
+communities = [ "lethal-company", ]
+[publish.categories]
+lethal-company = [ "tools", "libraries", "misc", ]

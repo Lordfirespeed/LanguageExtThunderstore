@@ -1,0 +1,3 @@
+[submodule "submodules/language-ext"]
+	path = submodules/language-ext
+	url = https://github.com/louthy/language-ext
