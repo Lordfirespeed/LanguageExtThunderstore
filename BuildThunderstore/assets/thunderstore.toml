@@ -42,6 +42,14 @@ target = "BepInEx/plugins/LanguageExt/"
 source = "../bin/Release/LanguageExt.Rx.pdb"
 target = "BepInEx/plugins/LanguageExt/"
 
+[[build.copy]]
+source = "../bin/Release/System.Threading.Tasks.Extensions.dll"
+target = "BepInEx/plugins/LanguageExt/"
+
+[[build.copy]]
+source = "../bin/Release/Microsoft.Bcl.AsyncInterfaces.dll"
+target = "BepInEx/plugins/LanguageExt/"
+
 
 [publish]
 repository = "https://thunderstore.io"

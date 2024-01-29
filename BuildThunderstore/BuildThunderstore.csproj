@@ -6,10 +6,13 @@
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
     
     <ItemGroup>
         <ProjectReference Include="$(ProjectDir)../LanguageExt*/LanguageExt*.csproj"/>
+        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="7.0.0"/>
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="[4.5.4,)"/>
     </ItemGroup>
 
     <Target Name="PackThunderstore" AfterTargets="PostBuildEvent" Condition="$(Configuration) == 'Release'">
